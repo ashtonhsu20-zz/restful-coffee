@@ -16,7 +16,6 @@ class CoffeePodDomain
      */
     public static function getCoffeePods($params = null)
     {
-//        todo
         return CoffeePodRepository::getCoffeePods($params);
     }
 }

@@ -24,12 +24,12 @@ class CoffeePodRepository
             foreach ($params as $paramKey => $paramValue) {
                 switch ($paramKey) {
                     case 'product':
-                        $product_id = CoffeePodProductType::where(CoffeePodProductType::DESCRIPTION, $paramValue)->first();
-                        $coffeePods->where(CoffeePod::PRODUCT_TYPE_ID, $product_id->id);
+                        $product_id = CoffeePodProductType::where(CoffeePodProductType::DESCRIPTION, $paramValue)->first()->id;
+                        $coffeePods->where(CoffeePod::PRODUCT_TYPE_ID, $product_id);
                         break;
                     case 'flavor':
-                        $flavor_id = CoffeePodFlavorType::where(CoffeePodFlavorType::DESCRIPTION, $paramValue)->first();
-                        $coffeePods->where(CoffeePod::COFFEE_FLAVOR_ID, $flavor_id->id);
+                        $flavor_id = CoffeePodFlavorType::where(CoffeePodFlavorType::DESCRIPTION, $paramValue)->first()->id;
+                        $coffeePods->where(CoffeePod::COFFEE_FLAVOR_ID, $flavor_id);
                         break;
                     case 'size':
                         $coffeePods->where(CoffeePod::SIZE, $paramValue);

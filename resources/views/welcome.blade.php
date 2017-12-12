@@ -71,6 +71,7 @@
                 <div class="title m-b-md">
                     Restful Coffee
                 </div>
+                <p>Visit <a href="/swagger">/swagger</a> to view the api</p>
             </div>
         </div>
     </body>
