@@ -1,0 +1,101 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Restful Coffee API",
+        "version": "0.1"
+    },
+    "basePath": "/api/v1",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/coffee_machines": {
+            "get": {
+                "description": "List of coffee machines",
+                "parameters": [
+                    {
+                        "name": "water_line",
+                        "in": "query",
+                        "description": "filter by water line compatible",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "product",
+                        "in": "query",
+                        "description": "filter by product type",
+                        "type": "string",
+                        "enum": [
+                            "COFFEE_MACHINE_SMALL",
+                            "COFFEE_MACHINE_LARGE",
+                            "ESPRESSO_MACHINE"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "array of coffee machine skus",
+                        "schema": {
+                            "properties": {
+                                "sku": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/coffee_pods": {
+            "get": {
+                "description": "List of coffee pods",
+                "parameters": [
+                    {
+                        "name": "flavor",
+                        "in": "query",
+                        "description": "filter by product type",
+                        "type": "string",
+                        "enum": [
+                            "COFFEE_FLAVOR_VANILLA",
+                            "COFFEE_FLAVOR_CARAMEL",
+                            "COFFEE_FLAVOR_PSL",
+                            "COFFEE_FLAVOR_MOCHA",
+                            "COFFEE_FLAVOR_HAZELNUT"
+                        ]
+                    },
+                    {
+                        "name": "product",
+                        "in": "query",
+                        "description": "filter by product type",
+                        "type": "string",
+                        "enum": [
+                            "COFFEE_POD_SMALL",
+                            "COFFEE_POD_LARGE",
+                            "ESPRESSO_POD"
+                        ]
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "filter by size",
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "array of coffee pods skus",
+                        "schema": {
+                            "properties": {
+                                "sku": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
